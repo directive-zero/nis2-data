@@ -1,14 +1,17 @@
 # Open NIS2 Dataset
 
-Machine-readable NIS2 reference data for Germany / BSIG, extracted from the Directive Zero v1 browser tools.
+**Short answer:** Machine-readable NIS2 reference data for Germany / BSIG — scope logic, §30 obligations, and statutory deadlines — published as versioned JSON under EUPL-1.2 and consumed by [directive0.eu](https://directive0.eu).
 
-The canonical data lives in `data/*.json`:
+The live site renders from this data. The tables and tools on directive0.eu and the JSON files here are the same source.
 
-- `data/scope.json` covers affectedness logic, special cases, sectors, size thresholds, and result rows.
-- `data/obligations.json` covers the §30 / §38 / §32 obligations matrix and assessment items.
-- `data/deadlines.json` covers statutory clocks for incident reporting, registration, and change notifications.
+## Canonical pages
 
-Generated Markdown tables in `dist/` are citation-oriented renderings of the JSON. They are built from the JSON and should not be edited by hand.
+| Data file | What it covers | Live page |
+|-----------|----------------|-----------|
+| [`data/scope.json`](data/scope.json) | Affectedness logic, sectors, thresholds, special cases | [NIS2-Betroffenheits-Check](https://directive0.eu/nis2/betroffenheit/) |
+| [`data/obligations.json`](data/obligations.json) | §30 / §38 / §32 obligations matrix | [§30 Pflichten-Matrix](https://directive0.eu/nis2/pflichten/) |
+| [`data/deadlines.json`](data/deadlines.json) | Incident reporting, registration, change clocks | [DACH deadlines](https://directive0.eu/nis2/fristen/) |
+| Glossary (site inline for now) | Defined terms with legal references | [NIS2 glossary](https://directive0.eu/glossar/nis2/) |
 
 ## Use
 
@@ -21,6 +24,8 @@ import scope from "@directive-zero/nis2-data/scope";
 import obligations from "@directive-zero/nis2-data/obligations";
 import deadlines from "@directive-zero/nis2-data/deadlines";
 ```
+
+Generated Markdown tables in `dist/` are citation-oriented renderings of the JSON. They are built from the JSON and should not be edited by hand.
 
 ## Build
 
@@ -38,3 +43,7 @@ Potentially near-verbatim legal or BSI-adjacent wording is tracked in `LEGAL_REV
 ## License
 
 EUPL-1.2. See `LICENSE`.
+
+## Cite
+
+See `CITATION.cff` — GitHub renders a "Cite this repository" button from this file.

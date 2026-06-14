@@ -1,6 +1,6 @@
 {
   "name": "@directive-zero/nis2-data",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Open NIS2 scope, obligations, and deadline reference data for Germany / BSIG.",
   "type": "module",
   "license": "EUPL-1.2",
@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git+https://github.com/directive-zero/nis2-data.git"
   },
-  "homepage": "https://github.com/directive-zero/nis2-data#readme",
+  "homepage": "https://directive0.eu",
   "bugs": {
     "url": "https://github.com/directive-zero/nis2-data/security/advisories"
   },
