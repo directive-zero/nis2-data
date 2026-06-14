@@ -1,0 +1,105 @@
+{
+  "$schema": "./schema/deadlines.schema.json",
+  "dataset": "nis2-de-bsig-deadlines",
+  "version": "1.0.0",
+  "jurisdiction": "DE",
+  "languagePrimary": "de",
+  "sourceNote": "Extracted from the Directive Zero v1 browser tools without legal-content rewrites.",
+  "deadlineGroups": [
+    {
+      "id": "incident-reporting",
+      "deadlineIds": ["incident-early-warning", "incident-follow-up", "incident-final-report"],
+      "summary": {
+        "de": "Erstmeldung binnen 24 h, Folgemeldung binnen 72 h, Abschlussbericht nach 1 Monat.",
+        "en": "Early warning in 24h, follow-up in 72h, final report after 1 month."
+      }
+    }
+  ],
+  "deadlines": [
+    {
+      "id": "registration",
+      "ref": "§33 BSIG",
+      "trigger": {
+        "de": "ab Betroffenheit",
+        "en": "from becoming in scope"
+      },
+      "duration": "P3M",
+      "label": {
+        "de": "Registrierung: 3 Monate ab Betroffenheit",
+        "en": "Registration: 3 months from becoming in scope"
+      },
+      "summary": {
+        "de": "Registrierung innerhalb von 3 Monaten über das BSI-Portal.",
+        "en": "Registration via the BSI portal within 3 months."
+      }
+    },
+    {
+      "id": "change-notification",
+      "ref": "§§33-34 BSIG",
+      "trigger": {
+        "de": "ab Änderung registrierter Angaben",
+        "en": "from changes to registered information"
+      },
+      "duration": "P2W",
+      "label": {
+        "de": "Änderungen: 2 Wochen",
+        "en": "Changes: 2 weeks"
+      },
+      "summary": {
+        "de": "Änderungen müssen binnen 2 Wochen aktualisiert werden.",
+        "en": "Changes must be updated within 2 weeks."
+      }
+    },
+    {
+      "id": "incident-early-warning",
+      "ref": "§32 BSIG",
+      "trigger": {
+        "de": "ab Kenntnis eines erheblichen Sicherheitsvorfalls",
+        "en": "from awareness of a significant security incident"
+      },
+      "duration": "PT24H",
+      "label": {
+        "de": "Erstmeldung: 24 Stunden ab Kenntnis",
+        "en": "Early warning: 24 hours from awareness"
+      },
+      "summary": {
+        "de": "Erstmeldung binnen 24 h.",
+        "en": "Early warning in 24h."
+      }
+    },
+    {
+      "id": "incident-follow-up",
+      "ref": "§32 BSIG",
+      "trigger": {
+        "de": "ab Kenntnis eines erheblichen Sicherheitsvorfalls",
+        "en": "from awareness of a significant security incident"
+      },
+      "duration": "PT72H",
+      "label": {
+        "de": "Folgemeldung: 72 Stunden ab Kenntnis",
+        "en": "Follow-up: 72 hours from awareness"
+      },
+      "summary": {
+        "de": "Folgemeldung binnen 72 h.",
+        "en": "Follow-up in 72h."
+      }
+    },
+    {
+      "id": "incident-final-report",
+      "ref": "§32 BSIG",
+      "trigger": {
+        "de": "ab Kenntnis eines erheblichen Sicherheitsvorfalls",
+        "en": "from awareness of a significant security incident"
+      },
+      "duration": "P1M",
+      "label": {
+        "de": "Abschlussmeldung: 1 Monat ab Kenntnis",
+        "en": "Final report: 1 month from awareness"
+      },
+      "summary": {
+        "de": "Abschlussbericht nach 1 Monat.",
+        "en": "Final report after 1 month."
+      }
+    }
+  ]
+}

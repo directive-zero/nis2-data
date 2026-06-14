@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/directive-zero/nis2-data/data/schema/obligations.schema.json",
+  "title": "Directive Zero NIS2 obligations",
+  "type": "object",
+  "required": ["dataset", "version", "jurisdiction", "entityClasses", "statusLabels", "obligations"],
+  "properties": {
+    "dataset": { "type": "string" },
+    "version": { "type": "string" },
+    "jurisdiction": { "type": "string" },
+    "entityClasses": { "type": "array", "items": { "type": "object", "required": ["id", "label", "note"] } },
+    "statusLabels": { "type": "object" },
+    "obligations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "ref", "appliesTo", "title", "subtitle", "description", "items"],
+        "properties": {
+          "id": { "type": "string" },
+          "ref": { "type": "string" },
+          "appliesTo": { "type": "array", "items": { "type": "string" } },
+          "title": { "type": "object" },
+          "subtitle": { "type": "object" },
+          "description": { "type": "object" },
+          "deadlineIds": { "type": "array", "items": { "type": "string" } },
+          "flags": { "type": "array", "items": { "type": "string" } },
+          "items": { "type": "array", "items": { "type": "object", "required": ["id", "statement", "detail"] } }
+        }
+      }
+    }
+  }
+}

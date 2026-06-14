@@ -1,0 +1,258 @@
+{
+  "$schema": "./schema/obligations.schema.json",
+  "dataset": "nis2-de-bsig-obligations",
+  "version": "1.0.0",
+  "jurisdiction": "DE",
+  "languagePrimary": "de",
+  "sourceNote": "Extracted from the PFLICHTEN array in d0_web/src/components/MatrixTool.astro without legal-content rewrites. English obligation text is not rewritten in v1.0.0; consumers should fall back to German where no English text is present.",
+  "entityClasses": [
+    {
+      "id": "w",
+      "label": { "de": "Wichtige Einrichtung", "en": "Important entity" },
+      "note": {
+        "de": "Wichtige Einrichtungen: alle Kernpflichten (§§30, 32-35, 38), reaktive Aufsicht. Bußgeldrahmen bis 7 Mio. EUR bzw. 1,4 % des weltweiten Umsatzes.",
+        "en": "Important entities: all core duties (§§30, 32-35, 38), reactive supervision. Fine range up to EUR 7m or 1.4% of global turnover."
+      }
+    },
+    {
+      "id": "bw",
+      "label": { "de": "Besonders wichtige Einrichtung", "en": "Essential entity" },
+      "note": {
+        "de": "Besonders wichtige Einrichtungen: alle Kernpflichten plus proaktive BSI-Aufsicht und Nachweispflichten. Bußgeldrahmen bis 10 Mio. EUR bzw. 2 % des weltweiten Umsatzes.",
+        "en": "Essential entities: all core duties plus proactive BSI supervision and evidence duties. Fine range up to EUR 10m or 2% of global turnover."
+      }
+    },
+    {
+      "id": "kritis",
+      "label": { "de": "Betreiber kritischer Anlagen (KRITIS)", "en": "Operator of critical installations (KRITIS)" },
+      "note": {
+        "de": "Betreiber kritischer Anlagen: strengste Stufe — zusätzlich Systeme zur Angriffserkennung (§31) und regelmäßige verpflichtende Nachweise (§39).",
+        "en": "KRITIS operators: strictest class, with attack-detection systems (§31) and recurring mandatory evidence (§39)."
+      }
+    }
+  ],
+  "statusLabels": {
+    "de": ["Offen", "Teilweise", "Umgesetzt"],
+    "en": ["Open", "Partial", "Done"]
+  },
+  "obligations": [
+    {
+      "id": "gov",
+      "ref": "§38 BSIG",
+      "appliesTo": ["w", "bw", "kritis"],
+      "title": { "de": "Pflichten der Geschäftsleitung" },
+      "subtitle": { "de": "Billigung, Überwachung, Schulung — persönliche Haftung" },
+      "description": { "de": "Die Geschäftsleitung muss die Risikomanagementmaßnahmen selbst billigen und ihre Umsetzung überwachen. Diese Pflicht ist nicht delegierbar." },
+      "flags": ["haftung"],
+      "items": [
+        { "id": "gov1", "statement": { "de": "Die Geschäftsleitung hat die Sicherheitsmaßnahmen förmlich beschlossen" }, "detail": { "de": "Ein dokumentierter Beschluss mit Datum und Unterschrift. Ein Konzept, das nur die IT abgelegt hat, genügt nicht." } },
+        { "id": "gov2", "statement": { "de": "Die Geschäftsleitung lässt sich regelmäßig zur IT-Sicherheit berichten" }, "detail": { "de": "Fester Termin, zum Beispiel quartalsweise: Stand, offene Punkte, Vorfälle und Entscheidungen." } },
+        { "id": "gov3", "statement": { "de": "Die Geschäftsleitung hat eine Schulung zur Cybersicherheit besucht" }, "detail": { "de": "Für jedes Mitglied der Geschäftsleitung, regelmäßig und mit Teilnahmebestätigung." } },
+        { "id": "gov4", "statement": { "de": "Eine Person ist offiziell für Informationssicherheit verantwortlich" }, "detail": { "de": "Intern oder extern, mit klarem Auftrag und direktem Draht zur Geschäftsleitung." } }
+      ]
+    },
+    {
+      "id": "reg",
+      "ref": "§§33-34 BSIG",
+      "appliesTo": ["w", "bw", "kritis"],
+      "title": { "de": "Registrierung beim BSI" },
+      "subtitle": { "de": "Erstregistrierung und aktuelle Kontaktdaten" },
+      "description": { "de": "Einrichtungen müssen sich selbst beim BSI registrieren und ihre Angaben aktuell halten." },
+      "deadlineIds": ["registration", "change-notification"],
+      "items": [
+        { "id": "reg1", "statement": { "de": "Geprüft und dokumentiert, ob und wie Ihr Unternehmen betroffen ist" }, "detail": { "de": "Sektor, Unternehmensgröße und Ergebnis schriftlich festhalten." } },
+        { "id": "reg2", "statement": { "de": "Unternehmen beim BSI registriert" }, "detail": { "de": "Online über das BSI-Portal, mit Name, Anschrift, Sektor und Kontaktdaten." } },
+        { "id": "reg3", "statement": { "de": "Eine erreichbare Kontaktstelle für das BSI benannt" }, "detail": { "de": "Am besten ein Sammelpostfach, das mehrere Personen lesen." } },
+        { "id": "reg4", "statement": { "de": "Geregelt, wer die Angaben aktuell hält" }, "detail": { "de": "Änderungen müssen binnen 2 Wochen aktualisiert werden." } }
+      ]
+    },
+    {
+      "id": "risk",
+      "ref": "§30 (2) 1 BSIG",
+      "appliesTo": ["w", "bw", "kritis"],
+      "title": { "de": "Risikoanalyse & Sicherheitskonzepte" },
+      "subtitle": { "de": "Art. 21 (2) a — das Fundament" },
+      "description": { "de": "Konzepte für Risikoanalyse und Sicherheit der Informationssysteme. Alle Maßnahmen müssen auf diese Risikoanalyse rückführbar sein." },
+      "nis2Articles": ["Art. 21 (2) a"],
+      "items": [
+        { "id": "risk1", "statement": { "de": "Es gibt eine schriftliche Leitlinie zur Informationssicherheit" }, "detail": { "de": "Kurz, verständlich und von der Geschäftsleitung unterschrieben." } },
+        { "id": "risk2", "statement": { "de": "Kritische Abläufe und Systeme sind bekannt" }, "detail": { "de": "Welche Prozesse dürfen nicht stillstehen und welche IT-Systeme hängen daran?" } },
+        { "id": "risk3", "statement": { "de": "Risiken sind bewertet und schriftlich festgehalten" }, "detail": { "de": "Was kann passieren, wie wahrscheinlich ist es, wie teuer wäre es? Mindestens jährlich aktualisieren." } },
+        { "id": "risk4", "statement": { "de": "Aus den Risiken folgt ein Maßnahmenplan" }, "detail": { "de": "Mit Verantwortlichen und Terminen." } }
+      ]
+    },
+    {
+      "id": "inc",
+      "ref": "§30 (2) 2 BSIG",
+      "appliesTo": ["w", "bw", "kritis"],
+      "title": { "de": "Bewältigung von Sicherheitsvorfällen" },
+      "subtitle": { "de": "Art. 21 (2) b — erkennen, reagieren, lernen" },
+      "description": { "de": "Vorfälle müssen erkannt, behandelt und ausgewertet werden. Ohne Abläufe sind die Meldefristen des §32 kaum einzuhalten." },
+      "nis2Articles": ["Art. 21 (2) b"],
+      "items": [
+        { "id": "inc1", "statement": { "de": "Es gibt einen Plan für den IT-Notfall" }, "detail": { "de": "Wer entscheidet, wer informiert wen, wer darf Systeme abschalten? Auch offline verfügbar." } },
+        { "id": "inc2", "statement": { "de": "Angriffe und Störungen werden technisch erkannt — und jemand sieht es" }, "detail": { "de": "Alarme zählen nur, wenn eine benannte Person sie tatsächlich prüft." } },
+        { "id": "inc3", "statement": { "de": "Vorfälle werden dokumentiert und ausgewertet" }, "detail": { "de": "Was ist wann passiert, was wurde entschieden, was lernen wir daraus?" } },
+        { "id": "inc4", "statement": { "de": "Der Ernstfall wurde geübt" }, "detail": { "de": "Mindestens jährlich ein dokumentiertes Planspiel." } }
+      ]
+    },
+    {
+      "id": "bcm",
+      "ref": "§30 (2) 3 BSIG",
+      "appliesTo": ["w", "bw", "kritis"],
+      "title": { "de": "Betriebskontinuität & Krisenmanagement" },
+      "subtitle": { "de": "Art. 21 (2) c — Backup, Wiederanlauf, Krise" },
+      "description": { "de": "Aufrechterhaltung des Betriebs: Backup-Management, Wiederherstellung nach einem Notfall und Krisenmanagement." },
+      "nis2Articles": ["Art. 21 (2) c"],
+      "items": [
+        { "id": "bcm1", "statement": { "de": "Die Datensicherung ist gegen Erpressungstrojaner geschützt" }, "detail": { "de": "Mindestens eine Kopie, die ein Angreifer nicht löschen oder verschlüsseln kann." } },
+        { "id": "bcm2", "statement": { "de": "Die Wiederherstellung wurde wirklich getestet" }, "detail": { "de": "Probeweise zurückspielen und Dauer messen." } },
+        { "id": "bcm3", "statement": { "de": "Es gibt einen Notfallplan für die wichtigsten Abläufe" }, "detail": { "de": "Reihenfolge des Wiederanlaufs und manuelle Ersatzverfahren." } },
+        { "id": "bcm4", "statement": { "de": "Krisenführung und Kommunikation sind geregelt" }, "detail": { "de": "Krisenstab, Erreichbarkeit, Kunden, Presse und Behörden." } }
+      ]
+    },
+    {
+      "id": "supply",
+      "ref": "§30 (2) 4 BSIG",
+      "appliesTo": ["w", "bw", "kritis"],
+      "title": { "de": "Sicherheit der Lieferkette" },
+      "subtitle": { "de": "Art. 21 (2) d — Dienstleister & Lieferanten" },
+      "description": { "de": "Sicherheit der Lieferkette einschließlich unmittelbarer Anbieter und Dienstleister." },
+      "nis2Articles": ["Art. 21 (2) d"],
+      "items": [
+        { "id": "sup1", "statement": { "de": "Abhängige Dienstleister und Lieferanten sind bekannt" }, "detail": { "de": "Wer hat Zugriff auf Systeme oder Daten, wessen Ausfall würde treffen?" } },
+        { "id": "sup2", "statement": { "de": "Sicherheitsanforderungen stehen in den Verträgen" }, "detail": { "de": "Vorfallmeldung, Prüfrechte und Sicherheitsniveau sind vereinbart." } },
+        { "id": "sup3", "statement": { "de": "Sicherheitsniveau wichtiger Lieferanten ist nachgewiesen" }, "detail": { "de": "Per Fragebogen, Zertifikat oder Bescheinigung, je nach Kritikalität." } },
+        { "id": "sup4", "statement": { "de": "Fernzugriffe von Externen sind kontrolliert" }, "detail": { "de": "Eigener Zugang, MFA, zeitliche Begrenzung und Protokollierung." } }
+      ]
+    },
+    {
+      "id": "dev",
+      "ref": "§30 (2) 5 BSIG",
+      "appliesTo": ["w", "bw", "kritis"],
+      "title": { "de": "Einkauf, Wartung & Schwachstellen" },
+      "subtitle": { "de": "Art. 21 (2) e — sichere IT von Anschaffung bis Ablösung" },
+      "description": { "de": "Sicherheit bei Erwerb, Entwicklung und Wartung von IT-Systemen, einschließlich Umgang mit Sicherheitslücken." },
+      "nis2Articles": ["Art. 21 (2) e"],
+      "items": [
+        { "id": "dev1", "statement": { "de": "Sicherheitsupdates werden zügig und nachweisbar eingespielt" }, "detail": { "de": "Feste Fristen je Kritikalität, Verantwortliche und Kontrolle." } },
+        { "id": "dev2", "statement": { "de": "Bekannte Sicherheitslücken werden systematisch geschlossen" }, "detail": { "de": "Regelmäßige Prüfung oder Hersteller-Warnungen mit dokumentierter Behebung." } },
+        { "id": "dev3", "statement": { "de": "Beim Einkauf neuer Systeme spielt Sicherheit eine Rolle" }, "detail": { "de": "Updates, Supportdauer und Reaktion auf Schwachstellen werden vorab geprüft." } },
+        { "id": "dev4", "statement": { "de": "Altsysteme sind bekannt und geplant" }, "detail": { "de": "Nicht mehr unterstützte Systeme werden ersetzt oder isoliert." } }
+      ]
+    },
+    {
+      "id": "eff",
+      "ref": "§30 (2) 6 BSIG",
+      "appliesTo": ["w", "bw", "kritis"],
+      "title": { "de": "Wirksamkeit der Maßnahmen bewerten" },
+      "subtitle": { "de": "Art. 21 (2) f — messen statt glauben" },
+      "description": { "de": "Konzepte und Verfahren zur Bewertung der Wirksamkeit der Risikomanagementmaßnahmen." },
+      "nis2Articles": ["Art. 21 (2) f"],
+      "items": [
+        { "id": "eff1", "statement": { "de": "Die Maßnahmen werden regelmäßig überprüft" }, "detail": { "de": "Interne Prüfung, externe Prüfung oder strukturierte Selbsteinschätzung." } },
+        { "id": "eff2", "statement": { "de": "Es gibt wenige, feste Kennzahlen" }, "detail": { "de": "Patchstand, Schulungsquote, MFA-Abdeckung und offene Risiken." } },
+        { "id": "eff3", "statement": { "de": "Gefundene Lücken werden abgestellt" }, "detail": { "de": "Jede Schwäche bekommt Verantwortlichen und Termin." } }
+      ]
+    },
+    {
+      "id": "hyg",
+      "ref": "§30 (2) 7 BSIG",
+      "appliesTo": ["w", "bw", "kritis"],
+      "title": { "de": "Cyberhygiene & Schulungen" },
+      "subtitle": { "de": "Art. 21 (2) g — Grundschutz für alle" },
+      "description": { "de": "Grundlegende Verfahren der Cyberhygiene und Schulungen im Bereich Cybersicherheit." },
+      "nis2Articles": ["Art. 21 (2) g"],
+      "items": [
+        { "id": "hyg1", "statement": { "de": "Alle Mitarbeitenden werden regelmäßig zu IT-Sicherheit geschult" }, "detail": { "de": "Mit dokumentierter Teilnahme." } },
+        { "id": "hyg2", "statement": { "de": "Mitarbeitende erkennen und melden Phishing" }, "detail": { "de": "Schulung, Test-E-Mails und ein einfacher Meldeweg." } },
+        { "id": "hyg3", "statement": { "de": "Die Grundregeln sind schriftlich und auffindbar" }, "detail": { "de": "Passwörter, private Nutzung, USB-Sticks und Homeoffice." } }
+      ]
+    },
+    {
+      "id": "crypto",
+      "ref": "§30 (2) 8 BSIG",
+      "appliesTo": ["w", "bw", "kritis"],
+      "title": { "de": "Kryptografie & Verschlüsselung" },
+      "subtitle": { "de": "Art. 21 (2) h — Konzept statt Zufall" },
+      "description": { "de": "Konzepte und Verfahren für den Einsatz von Verschlüsselung." },
+      "nis2Articles": ["Art. 21 (2) h"],
+      "items": [
+        { "id": "cry1", "statement": { "de": "Festgelegt, was verschlüsselt wird" }, "detail": { "de": "Notebooks, Smartphones, Backups und Datenübertragung." } },
+        { "id": "cry2", "statement": { "de": "Geräte und Übertragungswege sind verschlüsselt" }, "detail": { "de": "Festplattenverschlüsselung und gesicherte Verbindungen." } },
+        { "id": "cry3", "statement": { "de": "Schlüssel und Zertifikate werden verwaltet" }, "detail": { "de": "Wiederherstellungsschlüssel und Zertifikatsverlängerungen sind geregelt." } }
+      ]
+    },
+    {
+      "id": "access",
+      "ref": "§30 (2) 9 BSIG",
+      "appliesTo": ["w", "bw", "kritis"],
+      "title": { "de": "Personal, Zugriffskontrolle & Assets" },
+      "subtitle": { "de": "Art. 21 (2) i — wer darf was, auf welchem Gerät" },
+      "description": { "de": "Sicherheit des Personals, Zugriffskontrolle und Management von Anlagen und IT-Assets." },
+      "nis2Articles": ["Art. 21 (2) i"],
+      "items": [
+        { "id": "acc1", "statement": { "de": "Geräte, Software und Cloud-Dienste sind aktuell erfasst" }, "detail": { "de": "Auch nebenbei eingeführte Cloud-Dienste einzelner Abteilungen." } },
+        { "id": "acc2", "statement": { "de": "Jeder hat nur die notwendigen Zugriffsrechte" }, "detail": { "de": "Rollenbasiert, regelmäßig geprüft, Least Privilege." } },
+        { "id": "acc3", "statement": { "de": "Ein- und Austritte sind sauber geregelt" }, "detail": { "de": "Zugänge am Eintrittstag vergeben und beim Austritt sofort sperren." } },
+        { "id": "acc4", "statement": { "de": "Administratoren-Zugänge sind besonders geschützt" }, "detail": { "de": "Separates Admin-Konto, MFA und Protokollierung." } }
+      ]
+    },
+    {
+      "id": "mfa",
+      "ref": "§30 (2) 10 BSIG",
+      "appliesTo": ["w", "bw", "kritis"],
+      "title": { "de": "Sichere Anmeldung (MFA) & Kommunikation" },
+      "subtitle": { "de": "Art. 21 (2) j — zweiter Faktor und Notfallkanäle" },
+      "description": { "de": "Multi-Faktor-Authentifizierung sowie gesicherte Kommunikationswege im Alltag und Ersatzkanäle für den Notfall." },
+      "nis2Articles": ["Art. 21 (2) j"],
+      "items": [
+        { "id": "mfa1", "statement": { "de": "Anmeldung von außen nur mit zweitem Faktor" }, "detail": { "de": "E-Mail, Microsoft 365, VPN und Fernwartung ohne Ausnahmen." } },
+        { "id": "mfa2", "statement": { "de": "Administratoren nutzen besonders starke Verfahren" }, "detail": { "de": "Sicherheitsschlüssel oder Passkeys statt schwacher Faktoren." } },
+        { "id": "mfa3", "statement": { "de": "Vertrauliche Kommunikation läuft über sichere Kanäle" }, "detail": { "de": "Keine privaten Messenger-Konten für Unternehmenskommunikation." } },
+        { "id": "mfa4", "statement": { "de": "Der Krisenstab kann sich auch ohne Firmen-IT erreichen" }, "detail": { "de": "Ersatzweg und ausgedruckte Kontaktliste vorab festlegen." } }
+      ]
+    },
+    {
+      "id": "report",
+      "ref": "§32 BSIG",
+      "appliesTo": ["w", "bw", "kritis"],
+      "title": { "de": "Meldepflichten bei erheblichen Sicherheitsvorfällen" },
+      "subtitle": { "de": "24h Erstmeldung · 72h Folgemeldung · 1 Monat Abschlussmeldung" },
+      "description": { "de": "Erhebliche Sicherheitsvorfälle sind dem BSI in drei Stufen zu melden. Die Fristen laufen ab Kenntnis." },
+      "deadlineIds": ["incident-early-warning"],
+      "items": [
+        { "id": "rep1", "statement": { "de": "Der Meldeweg steht und kennt die Fristen" }, "detail": { "de": "Bewertung, Entscheidung und Meldung mit Vertretung für Urlaub und Wochenende." } },
+        { "id": "rep2", "statement": { "de": "Erhebliche Vorfälle sind vorab definiert" }, "detail": { "de": "Klare Schwellen für Stillstand, Schadenshöhe oder Kundendaten." } },
+        { "id": "rep3", "statement": { "de": "Der Zugang zum BSI-Meldeportal ist eingerichtet" }, "detail": { "de": "Zugang vorhanden und Formular vorab geprüft." } },
+        { "id": "rep4", "statement": { "de": "Kundeninformation nach §35 ist geregelt" }, "detail": { "de": "Textbausteine und Zuständigkeit vorab klären." } }
+      ]
+    },
+    {
+      "id": "siem",
+      "ref": "§31 BSIG",
+      "appliesTo": ["kritis"],
+      "title": { "de": "Systeme zur Angriffserkennung" },
+      "subtitle": { "de": "Nur Betreiber kritischer Anlagen" },
+      "description": { "de": "KRITIS-Betreiber müssen Systeme zur Angriffserkennung einsetzen, die Parameter und Merkmale aus dem laufenden Betrieb erfassen und auswerten." },
+      "items": [
+        { "id": "sie1", "statement": { "de": "Ein System zur Angriffserkennung ist im Einsatz" }, "detail": { "de": "Technik überwacht den laufenden Betrieb und meldet Angriffe." } },
+        { "id": "sie2", "statement": { "de": "Überwachung deckt Produktions- und Leittechnik ab" }, "detail": { "de": "Nicht nur Büro-IT, auch Anlagensteuerungen und Produktionsnetze." } },
+        { "id": "sie3", "statement": { "de": "Auf Alarme folgt eine festgelegte Reaktion" }, "detail": { "de": "Wer prüft Meldungen und entscheidet Gegenmaßnahmen?" } }
+      ]
+    },
+    {
+      "id": "proof",
+      "ref": "§39 BSIG / §§61-64",
+      "appliesTo": ["bw", "kritis"],
+      "title": { "de": "Nachweise & Aufsicht" },
+      "subtitle": { "de": "Besonders wichtige Einrichtungen und KRITIS" },
+      "description": { "de": "Besonders wichtige Einrichtungen und KRITIS brauchen geordnete, aktuelle Nachweise für BSI, Versicherer, Auditoren und Kunden." },
+      "items": [
+        { "id": "prf1", "statement": { "de": "Alle Nachweise sind an einem Ort auffindbar" }, "detail": { "de": "Richtlinien, Protokolle, Schulungs- und Testnachweise zentral abgelegt." } },
+        { "id": "prf2", "statement": { "de": "Die Nachweise sind aktuell" }, "detail": { "de": "Feste Termine, wann welcher Nachweis erneuert wird." } },
+        { "id": "prf3", "statement": { "de": "Kurzfristig kann ein vollständiges Paket vorgelegt werden" }, "detail": { "de": "Geordnet und ohne Hauruck-Aktion lieferbar." } }
+      ]
+    }
+  ]
+}

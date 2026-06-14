@@ -1,0 +1,38 @@
+publiccodeYmlVersion: "0.4"
+name: "Open NIS2 Dataset"
+url: "https://github.com/directive-zero/nis2-data"
+softwareVersion: "1.0.0"
+releaseDate: "2026-06-14"
+logo: "https://directive0.eu/favicon.svg"
+platforms:
+  - web
+categories:
+  - data-collection
+  - compliance-management
+usedBy:
+  - "Directive Zero"
+developmentStatus: stable
+softwareType: standalone/other
+description:
+  en:
+    shortDescription: "Machine-readable NIS2 scope, obligations, and deadline reference data for Germany / BSIG."
+    longDescription: "Open JSON reference data for Germany's NIS2 implementation context, including affectedness scope data, BSIG obligation mappings, and statutory clocks for registration and incident reporting."
+    features:
+      - "Scope and affectedness reference data"
+      - "BSIG obligations matrix"
+      - "Incident reporting and registration deadlines"
+legal:
+  license: EUPL-1.2
+  mainCopyrightOwner: "Directive Zero"
+maintenance:
+  type: internal
+  contacts:
+    - name: "Directive Zero"
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - de
+    - en
+dependsOn:
+  open:
+    - name: "Node.js"

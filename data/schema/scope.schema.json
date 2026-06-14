@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/directive-zero/nis2-data/data/schema/scope.schema.json",
+  "title": "Directive Zero NIS2 scope data",
+  "type": "object",
+  "required": ["dataset", "version", "jurisdiction", "specialCases", "sectors", "sizeThresholds", "classification", "resultDefinitions", "resultRows"],
+  "properties": {
+    "dataset": { "type": "string" },
+    "version": { "type": "string" },
+    "jurisdiction": { "type": "string" },
+    "specialCases": { "type": "array", "items": { "type": "object", "required": ["id", "ref", "classification", "name", "description"] } },
+    "sectors": { "type": "array", "items": { "type": "object", "required": ["id", "annex", "annexName", "name", "description"] } },
+    "sizeThresholds": { "type": "object" },
+    "classification": { "type": "object" },
+    "resultDefinitions": { "type": "object" },
+    "resultRows": { "type": "array", "items": { "type": "object", "required": ["id", "ref", "title"] } }
+  }
+}

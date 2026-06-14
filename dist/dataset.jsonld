@@ -1,0 +1,31 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Open NIS2 Dataset for Germany / BSIG",
+  "description": "Machine-readable NIS2 scope, obligations, and deadline reference data extracted from Directive Zero browser tools.",
+  "url": "https://github.com/directive-zero/nis2-data",
+  "version": "1.0.0",
+  "license": "https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12",
+  "creator": {
+    "@type": "Organization",
+    "name": "Directive Zero",
+    "url": "https://directive0.eu"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://github.com/directive-zero/nis2-data/blob/v1.0.0/data/scope.json"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://github.com/directive-zero/nis2-data/blob/v1.0.0/data/obligations.json"
+    },
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "application/json",
+      "contentUrl": "https://github.com/directive-zero/nis2-data/blob/v1.0.0/data/deadlines.json"
+    }
+  ]
+}

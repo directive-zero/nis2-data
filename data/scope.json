@@ -1,0 +1,161 @@
+{
+  "$schema": "./schema/scope.schema.json",
+  "dataset": "nis2-de-bsig-scope",
+  "version": "1.0.0",
+  "jurisdiction": "DE",
+  "languagePrimary": "de",
+  "sourceNote": "Extracted from d0_web/src/components/AffectednessTool.astro without legal-content rewrites.",
+  "specialCases": [
+    {
+      "id": "kritis",
+      "ref": "§28 Abs. 1 BSIG",
+      "classification": { "type": "fixed", "entityClass": "essential" },
+      "name": { "de": "Betreiber einer kritischen Anlage (KRITIS)", "en": "Operator of a critical installation (KRITIS)" },
+      "description": { "de": "Ihre Anlage überschreitet die Schwellenwerte der BSI-KRITIS-Verordnung — z. B. Kraftwerk, Wasserwerk, großes Krankenhaus, zentrales Rechenzentrum.", "en": "Your installation exceeds the thresholds under the BSI KRITIS ordinance, such as a power plant, water utility, large hospital, or central data center." },
+      "reason": { "de": "Sie betreiben eine kritische Anlage (KRITIS) — §28 Abs. 1 stuft Betreiber kritischer Anlagen unabhängig von der Größe als besonders wichtige Einrichtung ein.", "en": "You operate a critical installation (KRITIS); §28(1) classifies KRITIS operators as essential entities regardless of size." }
+    },
+    {
+      "id": "qtsp",
+      "ref": "§28 Abs. 1 BSIG",
+      "classification": { "type": "fixed", "entityClass": "essential" },
+      "name": { "de": "Qualifizierter Vertrauensdiensteanbieter", "en": "Qualified trust service provider" },
+      "description": { "de": "Sie stellen qualifizierte elektronische Signaturen, Siegel, Zeitstempel oder Zertifikate für Dritte aus.", "en": "You issue qualified electronic signatures, seals, timestamps, or certificates for third parties." },
+      "reason": { "de": "Qualifizierte Vertrauensdiensteanbieter gelten unabhängig von der Größe als besonders wichtige Einrichtung (§28 Abs. 1).", "en": "Qualified trust service providers count as essential entities regardless of size (§28(1))." }
+    },
+    {
+      "id": "dns",
+      "ref": "§28 Abs. 1 BSIG",
+      "classification": { "type": "fixed", "entityClass": "essential" },
+      "name": { "de": "TLD-Namensregistrierung oder DNS-Diensteanbieter", "en": "TLD registry or DNS service provider" },
+      "description": { "de": "Sie betreiben eine Top-Level-Domain oder bieten öffentliche DNS-Auflösung als Dienst an. Nicht gemeint: interner Firmen-DNS.", "en": "You operate a top-level domain or provide public DNS resolution. Not meant: internal company DNS." },
+      "reason": { "de": "TLD-Namensregistrierungen und DNS-Diensteanbieter gelten unabhängig von der Größe als besonders wichtige Einrichtung (§28 Abs. 1).", "en": "TLD registries and DNS service providers count as essential entities regardless of size (§28(1))." }
+    },
+    {
+      "id": "telco",
+      "ref": "§28 Abs. 1 / §28 Abs. 2 BSIG",
+      "classification": { "type": "medium-threshold", "mediumOrAbove": "essential", "belowMedium": "important" },
+      "name": { "de": "Anbieter öffentlicher Telekommunikationsnetze oder -dienste", "en": "Provider of public telecom networks or services" },
+      "description": { "de": "Sie verkaufen Telefonie, Internet oder Mobilfunk an Kunden. Nicht gemeint: internes Firmen-WLAN.", "en": "You sell telephony, internet, or mobile connectivity to customers. Not meant: internal Wi-Fi." },
+      "reasonMediumOrAbove": { "de": "Öffentliche TK-Netze/-Dienste oberhalb der Mittelstandsschwelle gelten als besonders wichtige Einrichtung (§28 Abs. 1).", "en": "Public telecom providers above the medium-size threshold count as essential entities (§28(1))." },
+      "reasonBelowMedium": { "de": "Öffentliche TK-Netze/-Dienste unterhalb der Mittelstandsschwelle gelten als wichtige Einrichtung (§28 Abs. 2).", "en": "Public telecom providers below the medium-size threshold count as important entities (§28(2))." }
+    },
+    {
+      "id": "tsp",
+      "ref": "§28 Abs. 2 BSIG",
+      "classification": { "type": "fixed", "entityClass": "important" },
+      "name": { "de": "Vertrauensdiensteanbieter (nicht qualifiziert)", "en": "Trust service provider (non-qualified)" },
+      "description": { "de": "Sie bieten elektronische Signaturen, Siegel, Zeitstempel oder Website-Zertifikate als Dienstleistung für Dritte an.", "en": "You provide electronic signatures, seals, timestamps, or website certificates as a service for third parties." },
+      "reason": { "de": "Vertrauensdiensteanbieter gelten unabhängig von der Größe als wichtige Einrichtung (§28 Abs. 2).", "en": "Trust service providers count as important entities regardless of size (§28(2))." }
+    }
+  ],
+  "sectors": [
+    { "id": "energy", "annex": "a1", "annexName": { "de": "Anlage 1 — Sektoren mit hoher Kritikalität", "en": "Annex 1 — high-criticality sectors" }, "name": { "de": "Energie", "en": "Energy" }, "description": { "de": "Stadtwerke, Netzbetreiber, Energiehandel, Fernwärme, Wasserstoff, Ladeinfrastruktur.", "en": "Utilities, grid operators, energy trading, district heating, hydrogen, charging infrastructure." } },
+    { "id": "transport", "annex": "a1", "annexName": { "de": "Anlage 1 — Sektoren mit hoher Kritikalität", "en": "Annex 1 — high-criticality sectors" }, "name": { "de": "Transport und Verkehr", "en": "Transport" }, "description": { "de": "Flug, Bahn, Häfen, ÖPNV, Straßenverkehrsbehörden. Klassische Speditionen meist eher Lieferkette.", "en": "Air, rail, ports, public transport, traffic authorities. Classic logistics is often supply-chain rather than direct scope." } },
+    { "id": "finance", "annex": "a1", "annexName": { "de": "Anlage 1 — Sektoren mit hoher Kritikalität", "en": "Annex 1 — high-criticality sectors" }, "name": { "de": "Finanz- und Versicherungswesen", "en": "Finance and insurance" }, "description": { "de": "Banken, Handelsplätze, zentrale Gegenparteien. DORA kann als Spezialregelung vorgehen.", "en": "Banks, trading venues, central counterparties. DORA may take precedence as a sector rule." } },
+    { "id": "healthcare", "annex": "a1", "annexName": { "de": "Anlage 1 — Sektoren mit hoher Kritikalität", "en": "Annex 1 — high-criticality sectors" }, "name": { "de": "Gesundheitswesen", "en": "Healthcare" }, "description": { "de": "Krankenhäuser, Labore, Pharma, Hersteller kritischer Medizinprodukte. Nicht einzelne Arztpraxen.", "en": "Hospitals, labs, pharma, manufacturers of critical medical devices. Not individual practices." } },
+    { "id": "water", "annex": "a1", "annexName": { "de": "Anlage 1 — Sektoren mit hoher Kritikalität", "en": "Annex 1 — high-criticality sectors" }, "name": { "de": "Trinkwasser / Abwasser", "en": "Drinking water / wastewater" }, "description": { "de": "Wasserversorger, Zweckverbände, Kläranlagen.", "en": "Water suppliers, public-purpose associations, wastewater plants." } },
+    { "id": "digital-infrastructure", "annex": "a1", "annexName": { "de": "Anlage 1 — Sektoren mit hoher Kritikalität", "en": "Annex 1 — high-criticality sectors" }, "name": { "de": "Digitale Infrastruktur", "en": "Digital infrastructure" }, "description": { "de": "Cloud-Anbieter, Rechenzentren, CDNs, Internetknoten. Nicht der eigene Serverraum.", "en": "Cloud providers, data centers, CDNs, internet exchanges. Not an internal server room." } },
+    { "id": "ict-service-management", "annex": "a1", "annexName": { "de": "Anlage 1 — Sektoren mit hoher Kritikalität", "en": "Annex 1 — high-criticality sectors" }, "name": { "de": "Verwaltung von IKT-Diensten (B2B)", "en": "ICT service management (B2B)" }, "description": { "de": "IT-Systemhäuser, MSPs, MSSPs und Fernadministration von Kundenumgebungen.", "en": "IT service providers, MSPs, MSSPs, and remote administration of customer environments." } },
+    { "id": "space", "annex": "a1", "annexName": { "de": "Anlage 1 — Sektoren mit hoher Kritikalität", "en": "Annex 1 — high-criticality sectors" }, "name": { "de": "Weltraum", "en": "Space" }, "description": { "de": "Bodeninfrastrukturen für Weltraumdienste.", "en": "Ground infrastructure for space services." } },
+    { "id": "manufacturing", "annex": "a2", "annexName": { "de": "Anlage 2 — Sonstige kritische Sektoren", "en": "Annex 2 — other critical sectors" }, "name": { "de": "Verarbeitendes Gewerbe", "en": "Manufacturing" }, "description": { "de": "Maschinenbau, Automotive-Zulieferer, Fahrzeugbau, Elektronik, elektrische Ausrüstung, Medizinprodukte.", "en": "Machinery, automotive suppliers, vehicle manufacturing, electronics, electrical equipment, medical devices." } },
+    { "id": "chemicals", "annex": "a2", "annexName": { "de": "Anlage 2 — Sonstige kritische Sektoren", "en": "Annex 2 — other critical sectors" }, "name": { "de": "Chemie", "en": "Chemicals" }, "description": { "de": "Produktion, Herstellung und Handel mit chemischen Stoffen.", "en": "Production, manufacturing, and trade in chemical substances." } },
+    { "id": "food", "annex": "a2", "annexName": { "de": "Anlage 2 — Sonstige kritische Sektoren", "en": "Annex 2 — other critical sectors" }, "name": { "de": "Lebensmittel", "en": "Food" }, "description": { "de": "Großhandel und industrielle Produktion/Verarbeitung. Nicht einzelne Restaurants oder Einzelhandel.", "en": "Wholesale and industrial production/processing. Not individual restaurants or retail." } },
+    { "id": "postal", "annex": "a2", "annexName": { "de": "Anlage 2 — Sonstige kritische Sektoren", "en": "Annex 2 — other critical sectors" }, "name": { "de": "Post- und Kurierdienste", "en": "Postal and courier services" }, "description": { "de": "Paket-, Brief-, Kurier- und Expressdienste.", "en": "Parcel, letter, courier, and express services." } },
+    { "id": "waste", "annex": "a2", "annexName": { "de": "Anlage 2 — Sonstige kritische Sektoren", "en": "Annex 2 — other critical sectors" }, "name": { "de": "Abfallbewirtschaftung", "en": "Waste management" }, "description": { "de": "Entsorgung, Recycling, Sammlung und Behandlung von Abfällen.", "en": "Disposal, recycling, collection, and treatment of waste." } },
+    { "id": "digital-services", "annex": "a2", "annexName": { "de": "Anlage 2 — Sonstige kritische Sektoren", "en": "Annex 2 — other critical sectors" }, "name": { "de": "Anbieter digitaler Dienste", "en": "Digital services" }, "description": { "de": "Online-Marktplatz, Suchmaschine oder soziales Netzwerk. Nicht der eigene Webshop.", "en": "Online marketplace, search engine, or social network. Not your own webshop." } },
+    { "id": "research", "annex": "a2", "annexName": { "de": "Anlage 2 — Sonstige kritische Sektoren", "en": "Annex 2 — other critical sectors" }, "name": { "de": "Forschung", "en": "Research" }, "description": { "de": "Kommerzielle Auftragsforschung und industrienahe F&E-Institute. Nicht Hochschulen.", "en": "Commercial contract research and industry-near R&D institutes. Not universities." } }
+  ],
+  "sizeThresholds": {
+    "employees": [
+      { "value": 0, "label": { "de": "unter 50", "en": "under 50" } },
+      { "value": 1, "label": { "de": "50-249", "en": "50-249" } },
+      { "value": 2, "label": { "de": "250 oder mehr", "en": "250 or more" } }
+    ],
+    "revenue": [
+      { "value": 0, "label": { "de": "bis 10 Mio. EUR", "en": "up to EUR 10m" } },
+      { "value": 1, "label": { "de": "über 10-50 Mio. EUR", "en": "over EUR 10-50m" } },
+      { "value": 2, "label": { "de": "über 50 Mio. EUR", "en": "over EUR 50m" } }
+    ],
+    "balanceSheet": [
+      { "value": 0, "label": { "de": "bis 10 Mio. EUR", "en": "up to EUR 10m" } },
+      { "value": 1, "label": { "de": "über 10-43 Mio. EUR", "en": "over EUR 10-43m" } },
+      { "value": 2, "label": { "de": "über 43 Mio. EUR", "en": "over EUR 43m" } }
+    ],
+    "rules": {
+      "large": "employees == 2 OR (revenue == 2 AND balanceSheet == 2)",
+      "medium": "employees >= 1 OR (revenue >= 1 AND balanceSheet >= 1)"
+    }
+  },
+  "classification": {
+    "annexRules": {
+      "a1": { "large": "essential", "medium": "important", "below": "chain-check", "ref": "§28 Abs. 1 / §28 Abs. 2 BSIG" },
+      "a2": { "large": "important", "medium": "important", "below": "chain-check", "ref": "§28 Abs. 2 BSIG" }
+    },
+    "reasons": {
+      "annex1": { "de": "Ihr Sektor \"{sector}\" fällt unter Anlage 1 BSIG.", "en": "Your sector \"{sector}\" falls under Annex 1 BSIG." },
+      "annex2": { "de": "Ihr Sektor \"{sector}\" fällt unter Anlage 2 BSIG.", "en": "Your sector \"{sector}\" falls under Annex 2 BSIG." },
+      "annex1Large": { "de": "Ihr Unternehmen überschreitet die Großunternehmens-Schwelle (§28 Abs. 1).", "en": "Your company exceeds the large-company threshold (§28(1))." },
+      "annex1Medium": { "de": "Ihr Unternehmen liegt im Mittelstandsband — damit wichtige Einrichtung (§28 Abs. 2).", "en": "Your company meets the medium-size threshold, making it an important entity (§28(2))." },
+      "annex1Below": { "de": "Ihr Unternehmen bleibt unter den Größenschwellen — keine direkte Betroffenheit über die Größe.", "en": "Your company is below the size thresholds; there is no direct scope based on size." },
+      "annex2Medium": { "de": "Ihr Unternehmen erreicht die Schwelle — damit wichtige Einrichtung (§28 Abs. 2).", "en": "Your company meets the threshold, making it an important entity (§28(2))." },
+      "annex2Below": { "de": "Ihr Unternehmen bleibt unter den Größenschwellen — keine direkte Betroffenheit.", "en": "Your company is below the thresholds; no direct NIS2 scope." },
+      "noneSector": { "de": "Ihre Tätigkeit fällt unter keinen Sektor der Anlagen 1 und 2 BSIG — keine direkte NIS2-Betroffenheit.", "en": "Your activity does not fall under Annex 1 or 2 BSIG; no direct NIS2 scope." },
+      "chainQuestionnaire": { "de": "Sie haben bereits NIS2-Fragebögen oder Vertragsklauseln erhalten.", "en": "You have already received NIS2 questionnaires or contract clauses." },
+      "chainSupplier": { "de": "Sie beliefern regulierte Kunden; deren Lieferketten-Pflicht kann Sie per Fragebogen erreichen.", "en": "You supply regulated customers; their supply-chain duty can reach you through questionnaires." },
+      "chainNo": { "de": "Keine regulierten Kunden in der Lieferkette angegeben.", "en": "No regulated customers indicated in the supply chain." }
+    }
+  },
+  "resultDefinitions": {
+    "essential": {
+      "badge": "critical",
+      "badgeLabel": { "de": "Direkt betroffen", "en": "Directly affected" },
+      "title": { "de": "Besonders wichtige Einrichtung", "en": "Essential entity" },
+      "summary": { "de": "Ihr Unternehmen unterliegt voraussichtlich der strengsten NIS2-Kategorie — mit aktiver BSI-Aufsicht und regelmäßiger Nachweispflicht.", "en": "Your company likely falls into the strictest NIS2 category, with proactive BSI supervision and evidence duties." },
+      "dutyIds": ["registration", "risk-management", "incident-reporting", "management", "evidence"],
+      "infoIds": ["management-liability", "proactive-supervision"],
+      "next": { "de": "Starten Sie mit der Pflichten-Matrix und strukturieren Sie Ihre §30-Nachweise.", "en": "Start with the obligations matrix and structure your §30 evidence." },
+      "cta": "matrix"
+    },
+    "important": {
+      "badge": "warn",
+      "badgeLabel": { "de": "Direkt betroffen", "en": "Directly affected" },
+      "title": { "de": "Wichtige Einrichtung", "en": "Important entity" },
+      "summary": { "de": "Ihr Unternehmen fällt voraussichtlich unter NIS2. Die Kernpflichten gelten durchgehend; die BSI-Aufsicht ist anlassbezogen.", "en": "Your company likely falls under NIS2. Core duties apply continuously; BSI supervision is reactive." },
+      "dutyIds": ["registration", "risk-management", "incident-reporting", "management"],
+      "infoIds": ["management-liability", "reactive-supervision"],
+      "next": { "de": "Starten Sie mit der Pflichten-Matrix und priorisieren Sie offene Nachweise.", "en": "Start with the obligations matrix and prioritize missing evidence." },
+      "cta": "matrix"
+    },
+    "chain": {
+      "badge": "warn",
+      "badgeLabel": { "de": "Indirekt betroffen", "en": "Indirectly affected" },
+      "title": { "de": "Nachweispflichtig über die Lieferkette", "en": "Evidence-bound through the supply chain" },
+      "summary": { "de": "Sie fallen nicht direkt unter NIS2 — aber regulierte Kunden können Nachweise vertraglich von Ihnen verlangen.", "en": "You are not directly in scope, but regulated customers may require evidence by contract." },
+      "dutyIds": [],
+      "infoIds": ["contract-requirements"],
+      "next": { "de": "Ordnen Sie zuerst den Lieferketten-Nachweis ein und bereiten Sie ein knappes Nachweispaket vor.", "en": "Review supply-chain evidence first and prepare a concise evidence pack." },
+      "cta": "supply"
+    },
+    "none": {
+      "badge": "ok",
+      "badgeLabel": { "de": "Nicht betroffen", "en": "Not affected" },
+      "title": { "de": "Derzeit keine NIS2-Betroffenheit erkennbar", "en": "No NIS2 scope currently visible" },
+      "summary": { "de": "Auf Basis Ihrer Angaben fallen Sie weder direkt unter NIS2 noch sind Lieferketten-Anforderungen erkennbar.", "en": "Based on your answers, neither direct NIS2 scope nor supply-chain requirements are visible." },
+      "dutyIds": [],
+      "infoIds": [],
+      "next": { "de": "Dokumentieren Sie die Einschätzung und prüfen Sie sie bei Wachstum, neuen Sektoren oder regulierten Kunden erneut.", "en": "Document the assessment and revisit it when you grow, enter new sectors, or serve regulated customers." },
+      "cta": "checklist"
+    }
+  },
+  "resultRows": [
+    { "id": "registration", "ref": "§33 BSIG", "title": { "de": "Registrierung beim BSI", "en": "Register with the BSI" }, "deadlineIds": ["registration"] },
+    { "id": "risk-management", "ref": "§30 BSIG", "title": { "de": "Risikomanagement umsetzen", "en": "Implement risk management" }, "description": { "de": "10 Mindestmaßnahmen nachweisbar umsetzen.", "en": "Implement and evidence the 10 minimum measures." } },
+    { "id": "incident-reporting", "ref": "§32 BSIG", "title": { "de": "Sicherheitsvorfälle melden", "en": "Report security incidents" }, "deadlineGroupId": "incident-reporting" },
+    { "id": "management", "ref": "§38 BSIG", "title": { "de": "Geschäftsleitung einbinden", "en": "Involve management body" }, "description": { "de": "Billigung, Überwachung und Schulung der Geschäftsleitung.", "en": "Approval, oversight, and training by management." } },
+    { "id": "evidence", "ref": "§39 BSIG", "title": { "de": "Umsetzung nachweisen", "en": "Evidence implementation" }, "description": { "de": "Regelmäßige Nachweise gegenüber dem BSI.", "en": "Regular evidence to the BSI." } },
+    { "id": "management-liability", "ref": "§38 Abs. 2", "title": { "de": "Persönliche Haftung", "en": "Personal liability" }, "description": { "de": "Geschäftsleiter haften persönlich für Verstöße gegen Billigungs- und Überwachungspflichten.", "en": "Management can be personally liable for breaches of approval and oversight duties." } },
+    { "id": "proactive-supervision", "ref": "Aufsicht", "title": { "de": "Aktive Aufsicht", "en": "Proactive supervision" }, "description": { "de": "Das BSI kann auch ohne konkreten Anlass prüfen.", "en": "The BSI may review without a specific trigger." } },
+    { "id": "reactive-supervision", "ref": "Aufsicht", "title": { "de": "Anlassbezogene Aufsicht", "en": "Reactive supervision" }, "description": { "de": "Das BSI prüft bei konkretem Anlass — die Pflichten gelten trotzdem.", "en": "The BSI reviews when there is cause, but duties still apply." } },
+    { "id": "contract-requirements", "ref": "Vertrag", "title": { "de": "Kundenanforderungen", "en": "Customer requirements" }, "description": { "de": "NIS2-Fragebögen und Sicherheitsklauseln sind faktisch verbindlich, wenn Kunden sie zur Lieferbedingung machen.", "en": "NIS2 questionnaires and security clauses become practically binding when customers make them a supplier condition." } }
+  ]
+}

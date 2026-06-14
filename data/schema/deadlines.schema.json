@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/directive-zero/nis2-data/data/schema/deadlines.schema.json",
+  "title": "Directive Zero NIS2 deadlines",
+  "type": "object",
+  "required": ["dataset", "version", "jurisdiction", "deadlines"],
+  "properties": {
+    "dataset": { "type": "string" },
+    "version": { "type": "string" },
+    "jurisdiction": { "type": "string" },
+    "deadlines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "ref", "trigger", "duration", "label", "summary"],
+        "properties": {
+          "id": { "type": "string" },
+          "ref": { "type": "string" },
+          "trigger": { "$ref": "#/$defs/localizedString" },
+          "duration": { "type": "string" },
+          "label": { "$ref": "#/$defs/localizedString" },
+          "summary": { "$ref": "#/$defs/localizedString" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "localizedString": {
+      "type": "object",
+      "required": ["de"],
+      "properties": {
+        "de": { "type": "string" },
+        "en": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
